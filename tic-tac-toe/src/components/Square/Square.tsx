@@ -1,4 +1,4 @@
-import { SquareValue } from '../../helpers';
+import { SquareValue } from '../../squareTypes';
 import './Square.css';
 
 interface SquareProps {

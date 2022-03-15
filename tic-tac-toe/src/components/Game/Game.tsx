@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { calculateWinner, SquareValue } from '../../helpers';
+import React, { useState } from 'react';
+import { calculateWinner } from '../../helpers';
+import { SquareValue } from '../../squareTypes';
 import Board from '../Board/Board';
 import './Game.css';
 

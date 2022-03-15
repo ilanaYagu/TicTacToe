@@ -1,3 +1,5 @@
+import { SquareValue } from "./squareTypes";
+
 export const calculateWinner = (squares: SquareValue[]): SquareValue => {
     const lines = [
         [0, 1, 2],
@@ -18,4 +20,3 @@ export const calculateWinner = (squares: SquareValue[]): SquareValue => {
     return null;
 };
 
-export type SquareValue = 'X' | 'O' | null;

@@ -1,6 +1,6 @@
 
-import React, { ReactNode, useState } from 'react'
-import { SquareValue } from '../../helpers';
+import React, { ReactNode, useState } from 'react';
+import { SquareValue } from '../../squareTypes';
 import Square from '../Square/Square';
 import './Board.css'
 
