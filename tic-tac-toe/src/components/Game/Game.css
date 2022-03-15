@@ -1,0 +1,18 @@
+#game {
+    width: 200px;
+    margin: 20px auto;
+    color: #E0EDED;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.move {
+    background-color: #12944c;
+    border-width: 0px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 200;
+    margin-top: 25px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
