@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
 import { calculateWinner } from '../../helpers';
-import { SquareValue } from '../../squareTypes';
+import { SquareValue, HistoryGame } from '../../squareTypes';
 import Board from '../Board/Board';
 import './Game.css';
 
-const Game: React.FC = () => {
+const Game = () => {
     const [xIsNext, setXIsNext] = useState<boolean>(true);
     const [stepNumber, setStepNumber] = useState<number>(0);
-    const [history, setHistory] = useState<{ squares: SquareValue[] }[]>([
-        {
-            squares: Array(9).fill(null)
-        }
-    ]);
-
-    const handleClickOnSquare = (i: number): void => {
-        const newHistory = history.slice(0, stepNumber + 1);
-        const current = newHistory[newHistory.length - 1];
-        const squares = current.squares.slice();
-        if (calculateWinner(squares) || squares[i]) {
-            return;
-        }
-        squares[i] = xIsNext ? "X" : "O";
-        setHistory(newHistory.concat([
+    const [history, setHistory] = useState<HistoryGame>({
+        gameBoards: [
             {
-                squares: squares
+                squares: Array(9).fill(null)
             }
-        ]));
-        setStepNumber(newHistory.length);
-        setXIsNext(!xIsNext);
+        ]
+    });
+
+    const handleClickOnSquare = (indexOfClickedSquare: number): void => {
+        const newHistoryGameBoards = history.gameBoards.slice(0, stepNumber + 1);
+        const currentGameBoard = newHistoryGameBoards[newHistoryGameBoards.length - 1];
+        const squares = currentGameBoard.squares.slice();
+        if (!(calculateWinner(squares) || squares[indexOfClickedSquare])) {
+            squares[indexOfClickedSquare] = xIsNext ? "X" : "O";
+            setHistory({
+                gameBoards: newHistoryGameBoards.concat([
+                    {
+                        squares: squares
+                    }
+                ])
+            })
+            setStepNumber(newHistoryGameBoards.length);
+            setXIsNext(!xIsNext);
+        }
     };
 
     const jumpTo = (step: number): void => {
@@ -36,12 +39,12 @@ const Game: React.FC = () => {
     };
 
 
-    const current = history[stepNumber];
-    const winner = calculateWinner(current.squares);
+    const currentGameBoard = history.gameBoards[stepNumber];
+    const winner = calculateWinner(currentGameBoard.squares);
 
-    const moves = history.map((step, move) => {
+    const moves = history.gameBoards.map((step, move) => {
         const desc = move ?
-            'Go to move #' + move :
+            `Go to move #${move}` :
             'Go to game start';
         return (
             <button key={move} onClick={() => jumpTo(move)} className="move">{desc}</button>
@@ -50,7 +53,7 @@ const Game: React.FC = () => {
 
     let status;
     if (winner) {
-        status = "Winner: " + winner;
+        status = `Winner: ${winner}`;
     } else {
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
@@ -59,8 +62,8 @@ const Game: React.FC = () => {
         <div id="game">
             <div>
                 <Board
-                    squares={current.squares}
-                    onClick={i => handleClickOnSquare(i)}
+                    squares={currentGameBoard.squares}
+                    onClick={index => handleClickOnSquare(index)}
                 />
             </div>
             <div>

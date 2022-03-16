@@ -2,18 +2,18 @@
 import React from 'react';
 import { SquareValue } from '../../squareTypes';
 import Square from '../Square/Square';
-import './Board.css'
+import './Board.css';
 
 interface BoardProps {
-    onClick(i: number): void;
+    onClick(indexOfClickedSquare: number): void;
     squares: SquareValue[];
 }
 
-const Board: React.FC<BoardProps> = ({ onClick, squares }) => {
+const Board = (props: BoardProps) => {
     return (
         <div className="board">
-            {squares.map((square, i) => (
-                <Square key={i} value={square} onClick={() => onClick(i)} />
+            {props.squares.map((square, index) => (
+                <Square key={index} value={square} onClick={() => props.onClick(index)} />
             ))}
         </div>
     );
