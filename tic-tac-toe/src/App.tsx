@@ -3,9 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import Game from './components/Game/Game';
 
-function App() {
+const App = () => {
   return (
-    <Game></Game>
+    <Game />
   );
 }
 
