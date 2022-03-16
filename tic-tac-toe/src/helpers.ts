@@ -1,4 +1,4 @@
-import { SquareValue } from "./squareTypes";
+import { SquareValue } from "./gameTypes";
 
 export const calculateWinner = (squares: SquareValue[]): SquareValue => {
     const lines = [

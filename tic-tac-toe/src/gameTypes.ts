@@ -4,6 +4,6 @@ export type GameBoard = {
     squares: SquareValue[];
 }
 
-export type HistoryGame = {
+export type GameHistory = {
     gameBoards: GameBoard[];
 }

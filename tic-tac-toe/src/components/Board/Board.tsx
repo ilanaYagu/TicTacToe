@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SquareValue } from '../../squareTypes';
+import { SquareValue } from '../../gameTypes';
 import Square from '../Square/Square';
 import './Board.css';
 

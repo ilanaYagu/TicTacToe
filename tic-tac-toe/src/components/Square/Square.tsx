@@ -1,4 +1,4 @@
-import { SquareValue } from '../../squareTypes';
+import { SquareValue } from '../../gameTypes';
 import './Square.css';
 
 interface SquareProps {

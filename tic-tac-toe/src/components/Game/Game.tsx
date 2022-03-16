@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { calculateWinner } from '../../helpers';
-import { SquareValue, HistoryGame } from '../../squareTypes';
+import { GameHistory } from '../../gameTypes';
 import Board from '../Board/Board';
 import './Game.css';
 
 const Game = () => {
     const [xIsNext, setXIsNext] = useState<boolean>(true);
     const [stepNumber, setStepNumber] = useState<number>(0);
-    const [history, setHistory] = useState<HistoryGame>({
+    const [history, setHistory] = useState<GameHistory>({
         gameBoards: [
             {
                 squares: Array(9).fill(null)
