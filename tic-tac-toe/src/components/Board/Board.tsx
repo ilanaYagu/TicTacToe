@@ -2,7 +2,7 @@
 import React from 'react';
 import { SquareValue } from '../../squareTypes';
 import Square from '../Square/Square';
-import './Board.css'
+import './Board.css';
 
 interface BoardProps {
     onClick(i: number): void;
