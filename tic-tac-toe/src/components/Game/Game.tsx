@@ -62,7 +62,7 @@ const Game = () => {
         <div id="game">
             <div>
                 <Board
-                    squares={currentGameBoard.squares}
+                    board={currentGameBoard}
                     onClick={index => handleClickOnSquare(index)}
                 />
             </div>
