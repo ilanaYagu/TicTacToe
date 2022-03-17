@@ -9,11 +9,11 @@ interface BoardProps {
     board: GameBoard;
 }
 
-const Board = (props: BoardProps) => {
+const Board = ({ onClick, board }: BoardProps) => {
     return (
         <div className="board">
-            {props.board.squares.map((square, index) => (
-                <Square key={index} value={square} onClick={() => props.onClick(index)} />
+            {board.squares.map((square, index) => (
+                <Square key={index} value={square} onClick={() => onClick(index)} />
             ))}
         </div>
     );

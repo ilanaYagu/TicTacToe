@@ -6,10 +6,10 @@ interface SquareProps {
     value: SquareValue;
 }
 
-const Square = (props: SquareProps) => {
+const Square = ({ onClick, value }: SquareProps) => {
     return (
-        <button className="square" onClick={props.onClick}>
-            {props.value}
+        <button className="square" onClick={onClick}>
+            {value}
         </button>
     );
 };
